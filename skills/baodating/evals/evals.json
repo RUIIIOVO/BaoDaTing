@@ -1,0 +1,127 @@
+{
+  "skill_name": "baodating",
+  "status": "draft_unexecuted",
+  "execution_note": "Generic evaluation designs only. No cases have been executed, no live channels benchmarked, and no success scores measured. Static package checks do not establish research quality or integration availability.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "My reference files are getting hard to organize. Find me something that would help; I do not know what kind of tool I need.",
+      "expected_output": "Discover actual host research tools, perform a small exploratory search, then offer sourced solution forms and one consequential choice. Keep the user's effort low and avoid premature implementation.",
+      "files": [],
+      "expectations": [
+        "An actual low-cost search precedes a menu when a research channel is available.",
+        "The menu has 2–4 meaningful directions with observed examples and sources, and retains not sure/help me choose/other.",
+        "Only one consequential question is asked in the round; no mandatory subject/function/budget form is imposed.",
+        "Unavailable features remain unknown and the agent does not immediately propose building a new tool."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Help me find a desk lamp for evening drawing. I keep seeing sponsored recommendations and I am not sure what matters.",
+      "expected_output": "Use actual category research to clarify a recognizable use constraint. Compare suitable variants, prices and service conditions while separating commercial involvement from claim validity.",
+      "files": [],
+      "expectations": [
+        "Options arise from research and the first question addresses a consequential use condition rather than a technical questionnaire.",
+        "Exact model/variant, regional price conditions and return or warranty information are retained where observed.",
+        "Sponsor or shop links are treated as commercial evidence, not automatic proof of false claims.",
+        "The answer does not promise that reviews determine personal comfort or that all hidden advertising was detected."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I will be in Lisbon next month and want an easy day out with good food. Help me choose where to go.",
+      "expected_output": "Explore real feasible experiences before narrowing the request. Ask only the next decisive question and establish dates, people and other needed conditions before presenting comparable exact offers.",
+      "files": [],
+      "expectations": [
+        "The already supplied city is not asked again and vague next month is not converted into invented exact dates.",
+        "A small sourced choice menu explains experience and travel burden, with a help-me-choose option.",
+        "Opening hours, menus/packages, travel and price conditions are checked or explicitly left unknown.",
+        "Research does not become a reservation, purchase or message without authorization."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I want to understand recent methods for making document retrieval robust to noisy queries, preferably with code I could reproduce.",
+      "expected_output": "Use an exploratory literature pass to form research directions, then examine original methods, artifacts and relevant conditions. Assess evidence before access or compute cost.",
+      "files": [],
+      "expectations": [
+        "Scholarly discovery, full-text access and conclusion checking are reported as distinct actions.",
+        "Important papers have identifiers, dates/versions and evidence tied to their methods rather than abstract-only certainty.",
+        "Published date, underlying data period and retrieval date are not conflated.",
+        "Available code is not described as reproduced, and inexpensive access does not outweigh scientific evidence quality."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "These annual plans cost 30, 120, and 400 units. The cheapest misses offline access; the middle has offline access but cannot export my records; the highest has both. I need offline access and a usable export. Which is worth it?",
+      "expected_output": "Apply the stated mandatory conditions before costs, recognize that only the highest stated plan meets both, and verify actual plan evidence where a real product can be identified. Explain the incremental value without fabricating a product or using a percentage threshold.",
+      "files": [],
+      "expectations": [
+        "The middle plan is not recommended solely for being cheaper or mostly sufficient.",
+        "No fixed satisfaction percentage or naive feature/price ratio is used.",
+        "The answer distinguishes the user's supplied hypothetical plan facts from externally verified current pricing.",
+        "Offline access and export are not asked again; upgrade value and any remaining uncertainty are explicit."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Find open-source alternatives for a team scheduling workflow, and look for user reports on community sites and video comments. The host says search and a GitHub CLI are available, but I have not connected a phone.",
+      "expected_output": "Discover actual runtime actions, use available official and community routes, and report action-specific gaps. Continue useful candidate research without inventing mobile or comment access.",
+      "files": [],
+      "expectations": [
+        "Runtime capabilities are checked rather than inferred solely from the stated host inventory.",
+        "A configured GitHub CLI or official API is preferred when sufficient, without installing a redundant adapter.",
+        "Post bodies, comments, replies, subtitles and visuals have separate coverage claims.",
+        "Missing phone access, blocked comments and successful searches with no matches remain distinct statuses."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "A review has a sponsor disclosure, a store link and very polished wording. Does that prove its battery-life claim is fake? Please check the original evidence you can access.",
+      "expected_output": "Assess the concrete claim separately from the observed commercial relationship and style. Seek the original source and independent, condition-matched evidence, without inventing an authenticity probability.",
+      "files": [],
+      "expectations": [
+        "Disclosure and store link are identified as commercial evidence rather than proof of a false battery claim.",
+        "Polished or AI-like wording is not used as proof of fabrication.",
+        "The answer seeks a source/model/test condition or asks one necessary question if none can be identified.",
+        "Observed versus inaccessible evidence is explicit; no invented confidence score or claim of viewing unseen video appears."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Compare the current official individual plans for the two products at the links I provide next. I already know I need browser access and monthly billing; just tell me the important differences.",
+      "expected_output": "Ask only for the missing product links needed to identify the comparison, then use current official evidence. Do not restart broad discovery menus or ask settled compatibility/billing questions.",
+      "files": [],
+      "expectations": [
+        "The agent does not invent product names or prices in the absence of the promised links.",
+        "Only the necessary missing identifier is requested; known requirements are preserved.",
+        "Once identifiers are available, the workflow narrows directly to the decision rather than imposing clarification rounds.",
+        "Billing period, required add-ons, limits, dates and unverified differences are treated explicitly."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Use a shopping App if the web misses relevant offers. I require background-only desktop work and have authorized a separate research account, but I have not set up its browser session. Do not use my everyday browser account.",
+      "expected_output": "Discover connected channels and their exact actions. Honor configured background operation and research-account isolation; use accessible public evidence while identifying setup gaps. Keep desktop, isolated web and mobile layers separate.",
+      "files": [],
+      "expectations": [
+        "The agent does not copy cookies, daily-browser profiles or other account login state.",
+        "A linked optional desktop dependency is not treated as an installed runtime or proof of phone capability.",
+        "An action that would violate background-only operation is reported or replaced, not silently executed in the foreground.",
+        "Mobile accessibility is preferred when connected and sufficient, screenshots fill missing visual evidence, and neither path is invented when unavailable."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "I need a better way to plan weekly meals. For this evaluation condition, suppose every online research channel is unavailable or returns an access error. What can you do with that limitation?",
+      "expected_output": "Represent the stated condition honestly, distinguish unavailable tools from attempted access failures, and offer provisional directions or a next step without pretending to have searched or found no solutions.",
+      "files": [],
+      "expectations": [
+        "No fabricated tool calls, discovered products, prices or citations are presented.",
+        "Unavailable, blocked and successful-no-match statuses are not conflated.",
+        "Any suggested directions are clearly provisional hypotheses, not source-backed discoveries.",
+        "The agent neither claims comprehensive absence of options nor builds or installs an integration to fill the gap."
+      ]
+    }
+  ]
+}
