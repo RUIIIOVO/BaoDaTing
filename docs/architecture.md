@@ -61,6 +61,6 @@ BaoDaTing/
         └── SKILL.md
 ```
 
-Skill 的参考材料与评测设计可随内容放在其目录内；评测设计不等于已通过验证。宿主加载 Skill 的方法见 [README](../README.md#加载草稿) 与 [English README](../README.en.md#load-the-draft)。
+Skill 的参考材料与评测设计可随内容放在其目录内；评测设计不等于已通过验证。宿主加载 Skill 的方法见 [README](../README.md#怎么用) 与 [English README](../README.en.md#use-it)。
 
 运行时存储由使用者在仓库外指定：浏览器研究配置、账号状态、设备绑定、凭据、个人偏好，以及按需保存的任务记录、证据和截图。单个事实问题无需创建整套文件。公开仓库不包含这些运行数据或真实账号配置，加载 Skill 也不会自动建立它们。
