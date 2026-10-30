@@ -52,12 +52,12 @@ Recommendations include sources, applicable conditions, and gaps in coverage. Tr
 
 ```mermaid
 flowchart LR
-    A[Your request] --> B[Skill strategy: explore and clarify]
-    B --> C[Available client tools: search / APIs / browser / devices]
-    C -->|Read-only research| D[Sources and evidence]
-    D --> E[Comparison and recommendation]
-    E -. Separate user authorization .-> F[Purchase / booking / sending]
+    A[Your request] --> B["BaoDaTing<br/>Explore · clarify<br/>Verify · compare"]
+    B <-->|Research and evidence| C["Connected tools<br/>Search · APIs<br/>Browser · devices"]
+    B --> D[Recommendation and sources]
 ```
+
+Purchases, bookings, and sending require the user's authorization.
 
 ## Channels and extensions
 
