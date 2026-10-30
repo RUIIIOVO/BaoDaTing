@@ -103,14 +103,14 @@ node /absolute/path/to/BaoDaTing/skills/baodating/scripts/browser.mjs --print-co
 
 ### Android 与 Mobile MCP
 
-启动脚本需要 **Node.js 20+** 和 `npx`，使用固定版本 `@mobilenext/mobile-mcp@1.0.14`。Android 读取还需要 ADB、用户授权的专用设备或模拟器，以及可访问的目标 App。
+启动脚本支持 macOS 与 Linux，需要 `npx`。固定版本 `@mobilenext/mobile-mcp@1.0.14` 的依赖要求 **Node.js 22.12+**，建议沿用上文的 22.20+ LTS。Android 读取还需要 ADB、用户授权的专用设备或模拟器，以及可访问的目标 App。
 
 ```sh
 node /absolute/path/to/BaoDaTing/skills/baodating/scripts/mobile.mjs --print-config
 node /absolute/path/to/BaoDaTing/skills/baodating/scripts/mobile.mjs --doctor --json
 ```
 
-`--print-config` 输出上游 MCP 的 `command` 和 `args`，不联网、不探测设备。正常运行脚本不带参数，通过 stdio 启动固定版本并禁用上游 telemetry；需要该启动行为时，客户端命令使用 `node`，参数使用 `mobile.mjs` 的绝对路径。
+`--print-config` 输出上游 MCP 的 `command`、`args` 和关闭 telemetry 的 `env`，不联网、不探测设备；可将这些字段加入客户端的 MCP 配置。正常运行脚本不带参数，也通过 stdio 启动同一固定版本并禁用上游 telemetry；此时客户端命令使用 `node`，参数使用 `mobile.mjs` 的绝对路径。
 
 `--doctor` 仅检查 Android ADB 状态，默认每次探测超时 1500ms；可用 `--timeout-ms 100..5000` 调整。多设备时需明确 `--device ID`；此选项只选择诊断目标，不限制 MCP 服务可访问的设备。实际 MCP 调用仍须明确设备 ID。
 

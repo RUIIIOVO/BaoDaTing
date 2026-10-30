@@ -10,7 +10,7 @@ One request. Find sources, check evidence, compare options.
 
 </div>
 
-BaoDaTing is a research skill built on the [Agent Skills standard](https://agentskills.io/specification). It helps agents such as Claude Code, Codex, and Pi discover existing solutions, verify important claims, and recommend options based on your needs and total cost.
+BaoDaTing is a retrieval and research skill built on the [Agent Skills standard](https://agentskills.io/specification). It helps agents such as Claude Code, Codex, and Pi start with one request, discover existing solutions, verify important claims, and recommend options based on your needs and total cost.
 
 Use it to find software, plugins, and open-source projects; compare products; research travel and dining; or explore academic literature.
 
@@ -43,7 +43,7 @@ Your agent needs search or source-reading tools. Installing the skill does not i
 
 ## How it helps you choose
 
-1. **Find what exists.** Run an actual exploratory search to discover options and directions with sources.
+1. **Find what exists.** Run an actual exploratory search and offer 2–4 directions supported by sources.
 2. **Ask what changes the decision.** Move from broad goals to details, one consequential question per round. Skip settled questions.
 3. **Verify original sources.** Check capabilities, prices, limitations, and experience reports. Explain commercial ties, conflicting evidence, and unknowns.
 4. **Compare the full cost.** Check essential needs first, then fees, setup, maintenance, and migration. Explain what extra spending buys.

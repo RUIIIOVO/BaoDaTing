@@ -1,6 +1,6 @@
-# Mobile MCP（P1）
+# Mobile MCP
 
-P1 为 Claude Code、Codex、Pi 等标准 stdio MCP 客户端接入 [Mobile Next Mobile MCP](https://github.com/mobile-next/mobile-mcp)。[mobile.mjs](../skills/baodating/scripts/mobile.mjs) 只负责启动与 Android 检查；设备操作由上游实现。首选专用 Android 真机，已有模拟器可选；脚本不安装或启动模拟器。
+通过标准 stdio MCP，将 [Mobile Next Mobile MCP](https://github.com/mobile-next/mobile-mcp) 接入 Claude Code、Codex、Pi 等客户端。[mobile.mjs](../skills/baodating/scripts/mobile.mjs) 负责启动与 Android 检查；设备操作由上游实现。首选专用 Android 真机，已有模拟器可选；脚本不安装或启动模拟器。
 
 ## 版本与命令
 
@@ -104,7 +104,7 @@ JSON 示例是**虚构夹具结果，不是本机实测**：
 
 仅 `ready` 为 `ok:true`、退出码 0，其余 doctor 状态退出码 1。有 `stage` 时为 `adb-version` 或 `adb-devices`；列表解析成功时附带数量，不含 ID。`--device` 只选择 doctor 检查条目，不构成上游设备绑定；**每次 MCP 设备调用仍须显式提供 `device`**。
 
-超时后记录阶段并停止自动重试，让用户检查连接、授权或其他 adb 使用者；不反复长等待、不杀共享 server。本机实际结果由父代理记入 [validation.md](validation.md)。
+超时后记录阶段并停止自动重试，让用户检查连接、授权或其他 adb 使用者；不反复长等待、不杀共享 server。实际环境的检查结果见[验证记录](validation.md)。
 
 ## 单 App search → detail → comments/ref smoke
 
@@ -173,6 +173,6 @@ mobile_take_screenshot({"device":"DEVICE_ID","maxSize":1024})
 node --test tests/mobile.test.mjs
 ```
 
-覆盖参数、symlink 入口与 import 无副作用、配置无探测、unauthorized/offline/absent/multiple、错误不转成功、超时与输出上限、固定启动参数、stdio/退出码、POSIX 信号和子孙进程清理。通过只说明 launcher 行为，真机须按上述流程验证；实际结果及硬件阻塞见父代理维护的 [validation.md](validation.md)。
+覆盖参数、symlink 入口与 import 无副作用、配置无探测、unauthorized/offline/absent/multiple、错误不转成功、超时与输出上限、固定启动参数、stdio/退出码、POSIX 信号和子孙进程清理。通过只说明 launcher 行为，真机须按上述流程验证；实际结果及设备阻塞见[验证记录](validation.md)。
 
 iOS 按[上游要求](https://github.com/mobile-next/mobile-mcp#prerequisites)准备：模拟器需要 Xcode/Command Line Tools 与已启动目标，真机需要连接、信任及对应 mobilecli 平台准备。1.0.14 source 的 iOS 模拟器首次设备操作可能安装上游 agent，应按用户允许的范围执行。本 doctor 只检查 Android；本项目不安装/启动 iOS 环境，也不宣称 iOS 已实测。

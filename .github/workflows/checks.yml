@@ -1,0 +1,29 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  launchers:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.20.0'
+      - name: Check launcher syntax
+        run: |
+          node --check skills/baodating/scripts/browser.mjs
+          node --check skills/baodating/scripts/mobile.mjs
+      - name: Run offline tests
+        run: node --test tests/*.test.mjs
+      - name: Check whitespace
+        run: git diff --check
