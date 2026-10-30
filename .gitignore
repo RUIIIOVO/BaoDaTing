@@ -1,0 +1,31 @@
+# Local maintainer files
+/TODO.md
+/TODO.local.md
+/.local/
+/private/
+/local/
+/.pi/
+/.agents/
+/.claude/
+/.codex/
+
+# Runtime data and credentials
+.env
+.env.*
+!.env.example
+**/auth.json
+**/approved.json
+**/cookies*.json
+**/storage-state*.json
+/browser/
+/profiles/
+/runs/
+/cache/
+*.log
+*.jsonl
+
+# Tools and OS
+node_modules/
+__pycache__/
+.DS_Store
+.worktrees/
