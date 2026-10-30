@@ -1,19 +1,19 @@
 ---
 name: baodating
 description: Research and compare solutions from a vague request, using real exploratory search before a few focused choices. Use for finding software, plugins, skills, open-source projects, products, travel, food, services, or research papers; verifying features and prices; or checking recommendations and commercial claims.
-compatibility: Requires host-provided online search or source-reading tools. Discover actual capabilities at runtime. Browser, desktop, mobile, authenticated services, and paid sources are optional and are not bundled or installed by this skill.
+compatibility: Works with Agent Skills clients such as Claude Code, Codex, and Pi. Requires online search or source-reading tools. Optional stdio MCP launchers use Node.js and npx; browsers, devices, accounts, and external services are configured separately.
 ---
 
 # BaoDaTing
 
 Turn one vague request into an evidence-backed decision with little effort from the user. Research helps discover the need; do not require a completed questionnaire first. Reply in the user's language.
 
-This package is a portable instruction draft and capability architecture. It can guide research with tools already supplied by a host. It contains no browser or mobile adapters, account setup, detector, or proprietary runtime. The [channel guide](references/channels.md) separates current instructions from optional transport integration targets.
+Use the agent's available tools for research. Optional [integration launchers](references/integrations.md) connect a dedicated research browser or Mobile MCP through standard stdio MCP. Read that guide when setting up or extending a channel; inspect actual capabilities before relying on it.
 
 ## 1. Start from the request and explore
 
 1. Extract what the conversation already establishes: desired outcome, hard constraints, existing tools, location or dates when relevant. Do not ask for known information again.
-2. Discover actual host capabilities, connected sources, and access restrictions. A service mentioned in documentation is not necessarily usable now. See [channels](references/channels.md) before choosing tools or accounts.
+2. Discover the agent's actual tools, connected sources, and access restrictions. A service mentioned in documentation is not necessarily usable now. See [channels](references/channels.md) before choosing tools or accounts.
 3. For a vague request, perform a low-cost **actual exploratory search** before presenting directions: a small query pass and a few promising original sources are usually enough. Look for real solution forms, representative candidates, and observed cost ranges. Use available search, official APIs, or usable websites; do not merely describe a search you intend to do.
 4. If no research channel is available or the exploratory attempt is blocked, report that limitation and what was actually attempted. Offer provisional directions labeled as hypotheses, not discovered products. Missing access is not evidence that no solutions exist.
 5. If one missing fact prevents useful exploration, ask that single prerequisite question and continue any independent exploration. For example, generic travel forms can be explored without inventing local availability or exact fares.
@@ -37,9 +37,9 @@ Keep a small internal needs card:
 - Outcome or solution form; must-haves, preferences, dispensable extras, unknowns.
 - Comparable monetary cost and time, learning, setup, maintenance, migration, or travel burden.
 - Relevant platform, region, dates, party size, version, SKU, or research scope.
-- Origin of each condition: user statement, authorized host-local preference, observed evidence, or explicit assumption.
+- Origin of each condition: user statement, authorized local preference, observed evidence, or explicit assumption.
 
-Current instructions override stored preferences. Do not infer enduring preferences from a single choice. Optional preferences belong in host-local storage; use the [generic template](references/preferences-template.md) only if useful, and keep completed records outside the public skill.
+Current instructions override stored preferences. Do not infer enduring preferences from a single choice. Optional preferences belong in private local storage; use the [generic template](references/preferences-template.md) only if useful, and keep completed records outside the public skill.
 
 ## 3. Plan channels around the next evidence gap
 
@@ -55,7 +55,7 @@ Follow alternatives, related work, author replies, references, and recommendatio
 
 Record actual channel, action, query or target, time or sort filters, login state without secrets, retrieval time, scope read, and result status. Distinguish unavailable, not searched, blocked, partial, successful with matches, and successful with no matches. Only the last status supports a scoped “no results” statement.
 
-Parallelize independent reads only; serialize actions sharing a browser session, profile, native app, or phone. Apply the host's configured foreground/background policy; do not assume the user's machine or tools support invisible operation.
+Parallelize independent reads only; serialize actions sharing a browser session, profile, native app, or phone. Apply the client's configured foreground/background policy; do not assume the user's machine or tools support invisible operation.
 
 ## 4. Verify original evidence
 
@@ -101,6 +101,6 @@ Match depth to the request; a single fact may need only one reliable source. Kee
 
 Research authorization covers searching and reading, not purchases, bookings, posts, messages, installs, paid access, or account creation. Such actions require applicable user authorization; reuse authorization already given and do not add repeated confirmation steps.
 
-## Evaluation status
+## Evaluation
 
-[Generic evaluation prompts](evals/evals.json) are **unexecuted designs**, not live benchmarks or evidence of platform support. Static validation checks packaging and structure only. Browser/mobile adapters, account provisioning, and detector training are outside this bootstrap draft; do not start building them to answer a research request.
+[Generic evaluation prompts](evals/evals.json) are **unexecuted designs**, not live benchmarks or evidence of platform support. Launcher tests cover their own behavior; they do not establish a platform's search, login, comment, or device coverage. Check the actual environment and report the action and scope verified.

@@ -4,7 +4,7 @@ Read this when choosing tools, handling login, or explaining coverage. These are
 
 ## Discover before using
 
-Inspect the host's tool catalog, connected services, tool documentation, or locally available CLI help. Do not assume tool namespaces, command flags, credentials, devices, or profiles from this document. Verify the specific action needed, then observe its actual result.
+Inspect the agent's tool catalog, connected services, tool documentation, or locally available CLI help. Do not assume tool namespaces, command flags, credentials, devices, or profiles from this document. Verify the specific action needed, then observe its actual result.
 
 Prefer an existing connector, official API, or CLI when it supplies sufficient evidence. For example, configured `gh` can retrieve repository metadata, releases, and issues without browser automation. Repository search does not establish coverage of all code, discussions, or comments. Use the official website or GUI where necessary and usable. Do not build a scraper or adapter merely because one channel is blocked.
 
@@ -22,7 +22,7 @@ Use another language, search engine, or source family when it addresses a real g
 
 ## Separate transport layers
 
-The package currently supplies instructions only. The following are optional integration targets for a host to configure separately; no adapter, device, account, or success guarantee is provided here.
+Use existing tools or configure an optional MCP connection with the [integration guide](integrations.md). The launchers configure transport; each environment still needs its own browser, device, account, and action checks.
 
 | Layer | Intended capability | What must be checked at runtime |
 | --- | --- | --- |
@@ -30,15 +30,15 @@ The package currently supplies instructions only. The following are optional int
 | Isolated web session | Public web in an isolated ephemeral session; authenticated research in a dedicated profile; headless operation where supported | Actual session/profile binding, login, rendering and action support; headless web is separate from native desktop automation |
 | Mobile device or emulator | Accessibility/element-tree reading first, screenshots for missing elements or visual evidence | Connected device, authorization, current UI, App/action coverage; desktop accessibility does not imply phone control |
 
-Optional desktop dependency: [codex-computer-use](https://github.com/RUIIIOVO/codex-computer-use). This is an integration option, not a bundled runtime or portable namespace contract. The official OpenAI proprietary runtime is not bundled with BaoDaTing; availability and permissions depend on the host. Do not infer current installation from the link.
+Optional desktop dependency: [codex-computer-use](https://github.com/RUIIIOVO/codex-computer-use). This is an integration option, not a bundled runtime or portable namespace contract. The official OpenAI proprietary runtime is not bundled with BaoDaTing; availability and permissions depend on the configured client and machine. Do not infer current installation from the link.
 
 Use mobile when the needed App content, price, local information, or review layer cannot be obtained sufficiently on the web. Read a compact accessibility tree first when available, refresh references after state changes, and use screenshots when elements or visual evidence are missing. If screenshot-only access is all that exists, state that limitation. Do not promise token savings or platform acceptance without measurement.
 
 ## Sessions and authorization
 
-- Use user-designated research-only accounts and dedicated sessions/profiles for authenticated research. Prefer an isolated session for public browsing where the host supports it. If isolation is unavailable, report it and use a suitable public route or obtain direction before authenticated research.
+- Use user-designated research-only accounts and dedicated sessions/profiles for authenticated research. Prefer an isolated session for public browsing where the configured tools support it. If isolation is unavailable, report it and use a suitable public route or obtain direction before authenticated research.
 - Do not copy account cookies, tokens, daily-browser profiles, or another account's login state. Isolation is a session boundary, not a claim to defeat platform restrictions.
-- Respect configured background-only operation. If the required action would focus an app or take the physical pointer, report the conflict and use another channel or request direction. Otherwise follow normal host interaction policy; background operation is not a universal user preference.
+- Respect configured background-only operation. If the required action would focus an app or take the physical pointer, report the conflict and use another channel or request direction. Otherwise follow normal client interaction policy; background operation is not a universal user preference.
 - Serialize actions within the same session, profile, app, or phone. Observe fresh UI state after navigation or interaction; do not reuse stale references or coordinates.
 - At login, CAPTCHA, or blocking, record the boundary. Use an accessible alternative or let the user handle the step. Do not claim a bypass or silently create accounts/install integrations.
 - Reading does not authorize purchase, booking, posting, reactions, messages, paid access, or changes to accounts. Keep credentials out of logs and outputs.
