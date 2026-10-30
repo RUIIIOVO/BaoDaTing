@@ -35,14 +35,23 @@ A loaded query form, successful redirect, search snippet, download banner or sam
 Report a product-specific price only when its identity, amount, date and scope were actually observed.
 Do not infer prices or dates from an unreadable curve, a hidden chart or promotional artwork.
 
+Read back the entered URL/share text before submitting, including punctuation and the complete item ID.
+A tool reporting successful text entry does not prove the App received the intended link: an input method
+may transform characters. If that happens, clear the field and use the available clipboard-write capability
+with the normal system paste action, then read back the field again. On Android, use `KEYCODE_PASTE`
+when supported by the connected tool; do not assume a particular tool namespace or command syntax.
+Recheck the returned product identity even after the pasted text matches.
+
 ## Access and observed limits
 
 - Public access to the input form does not establish anonymous access to the result.
-- In a 2026-10-30 browser check, a real JD product URL opened a 微信登录 / APP扫码登录 dialog.
+- In an anonymous browser check, a real JD product URL opened a 微信登录 / APP扫码登录 dialog.
   No product-specific historical curve or historical price was read before that login boundary.
   This check establishes a browser login barrier for that attempt; it does not prove all queries require login.
-- The mobile App's chart flow and a Taobao query were not tested in that browser check.
-  Verify each independently; browser failure does not establish App failure or universal App-only access.
+- A separate device check confirmed one real JD link could return matching model/seller information,
+  a dated historical minimum and a visible curve in the App. Verify each new query independently.
+  This does not establish complete product-detail or comment access; Taobao queries remain unverified.
+  Browser failure does not establish App failure or universal App-only access.
 - At login, CAPTCHA, download/install, paid access or another barrier, record the actual requirement.
   Use an accessible authorized route or let the user handle the prerequisite; do not bypass restrictions.
 - Do not assume website and App sessions are shared, or copy cookies/credentials between them.
@@ -62,6 +71,8 @@ Treat these as the service's stated approach, not proof that every point include
   If collection frequency, timezone or a date is not shown, record it as unknown.
 - Check coupon eligibility and quantity, order threshold, cross-store reductions and promotion timing.
   Check membership, new-user, region, payment-method and government/trade-in subsidy conditions separately.
+  Retain labels excluding red packets or limited-time subsidies. If precise pricing requests shopping-account
+  authorization, record that boundary; do not treat the displayed estimate as an authorized checkout quote.
 - Keep immediate cash payment separate from delayed cashback, returned shopping cards/credit and gifts.
   Do not subtract a future benefit at full face value without its redemption conditions and the user's use case.
 - Include shipping and required extra purchases where known; explain unavailable eligibility or cost details.
