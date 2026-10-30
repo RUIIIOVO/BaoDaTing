@@ -2,56 +2,86 @@
 
 # BaoDaTing · 包打听
 
-Ask BaoDaTing first.
+**Ask BaoDaTing first.**
 
-[中文](README.md) · [English](README.en.md)
+One request. Find sources, check evidence, compare options.
 
-[![Status: Skill draft](https://img.shields.io/badge/status-skill%20draft-64748b)](skills/baodating/SKILL.md)
-[![License: MIT](https://img.shields.io/badge/license-MIT-64748b)](LICENSE)
+[中文](README.md) · [Install](docs/installation.md) · [Architecture](docs/architecture.md) · [Extend](docs/extensions.md)
 
 </div>
 
-An agent skill for finding sources, checking evidence, and comparing options. Start with a sentence: the agent explores existing solutions, asks a few multiple-choice questions, then recommends options based on capabilities and total cost.
+BaoDaTing is a research skill built on the [Agent Skills standard](https://agentskills.io/specification). It helps agents such as Claude Code, Codex, and Pi discover existing solutions, verify important claims, and recommend options based on your needs and total cost.
 
 Use it to find software, plugins, and open-source projects; compare products; research travel and dining; or explore academic literature.
 
-> “I need a way to organize scattered web pages and papers. Help me explore the options first.”
+> I need a way to organize scattered web pages and papers. Help me explore the options first.
 
-## Use it
+## Get started
 
-Load the skill in an existing [Pi](https://github.com/earendil-works/pi) installation:
+Run one command for your client from the project where you want to use the skill. Requires **Node.js 22.20+** and an installed agent client.
 
 ```sh
-git clone https://github.com/RUIIIOVO/BaoDaTing.git
-cd BaoDaTing
-pi --skill ./skills/baodating
+# Claude Code
+npx skills add RUIIIOVO/BaoDaTing --skill baodating -a claude-code
+
+# Codex
+npx skills add RUIIIOVO/BaoDaTing --skill baodating -a codex
+
+# Pi
+npx skills add RUIIIOVO/BaoDaTing --skill baodating -a pi
 ```
 
-Then describe what you need. Other compatible hosts can load [SKILL.md](skills/baodating/SKILL.md) through their own skill mechanism. The host must provide search or web-reading tools; loading the skill does not configure accounts or connect devices.
+Installation applies to the current project by default; add `-g` to use it across your projects. The `skills` command is [Vercel's installer](https://github.com/vercel-labs/skills), which fetches this skill from GitHub.
 
-## How it searches
+Start your client and describe what you need, or invoke the skill explicitly:
 
-1. **Find what exists.** Explore actual options and offer 2–4 directions with sources.
-2. **Clarify what matters.** Ask one consequential question at a time, moving from broad goals to details. No intake form required.
-3. **Follow original sources.** Choose official sites, documentation, communities, comments, or original papers for the task. Check capabilities, prices, and applicable conditions.
-4. **Compare and recommend.** Check essential needs and whether upgrades justify their cost. Report commercial relationships, conflicting evidence, and gaps in coverage.
+| Claude Code | Codex | Pi |
+| --- | --- | --- |
+| `/baodating Help me choose a reference manager` | `$baodating Help me choose a reference manager` | `/skill:baodating Help me choose a reference manager` |
 
-Subject, function, and price organize the agent's internal notes. Academic work also requires assessing methods and evidence strength; access and reproduction costs do not replace research quality. Skip questions when the requirements are clear and keep factual lookups short. An unsuccessful search does not prove something does not exist.
+Your agent needs search or source-reading tools. Installing the skill does not install MCP servers, connect devices, or sign in to accounts. See the [installation guide](docs/installation.md) for manual setup, temporary loading in Pi, and optional channels.
 
-## Current progress
+## How it helps you choose
 
-This repository provides a **skill draft and architecture notes**, without end-to-end validation yet. The host performs searches and actions; channels require separate setup.
+1. **Find what exists.** Run an actual exploratory search to discover options and directions with sources.
+2. **Ask what changes the decision.** Move from broad goals to details, one consequential question per round. Skip settled questions.
+3. **Verify original sources.** Check capabilities, prices, limitations, and experience reports. Explain commercial ties, conflicting evidence, and unknowns.
+4. **Compare the full cost.** Check essential needs first, then fees, setup, maintenance, and migration. Explain what extra spending buys.
 
-| Channel | Integration |
+Recommendations include sources, applicable conditions, and gaps in coverage. Trying first, keeping your current tools, or deferring a purchase are valid outcomes. For academic work, methods and evidence strength come first; costs inform access and reproducibility.
+
+```mermaid
+flowchart LR
+    A[Your request] --> B[Skill strategy: explore and clarify]
+    B --> C[Available client tools: search / APIs / browser / devices]
+    C -->|Read-only research| D[Sources and evidence]
+    D --> E[Comparison and recommendation]
+    E -. Separate user authorization .-> F[Purchase / booking / sending]
+```
+
+## Channels and extensions
+
+The skill carries the research method; your client's connected tools perform searches and actions. Choose channels for the task and explain coverage when a channel is unavailable.
+
+| Sources you need | Optional channels |
 | --- | --- |
-| Web and code | Reuse the host's isolated headless browser; use official APIs or `gh` when appropriate |
-| macOS apps | Optionally use [codex-computer-use](https://github.com/RUIIIOVO/codex-computer-use), with the official OpenAI runtime installed separately |
-| Android apps | Planned: a dedicated real device with Mobile MCP, elements first and screenshots for gaps; not integrated yet |
+| Web pages, docs, and code | Search, official APIs, `gh`, a dedicated research browser |
+| macOS app content | [codex-computer-use](https://github.com/RUIIIOVO/codex-computer-use), with the official OpenAI runtime and OS permissions |
+| Android app content | Mobile MCP, a dedicated device, and ADB; elements first, screenshots for gaps |
 
-Account-based research uses a separate browser profile and backup accounts. Native desktop control and the headless browser are separate tools. Keep research records, preferences, and credentials outside the repository. Measure channel coverage, platform restrictions, and token usage in the actual environment.
+The repository includes optional browser and mobile launch scripts; see [channel setup](docs/installation.md#可选渠道). The research browser uses a separate persistent profile. Keep account state, credentials, preferences, and research records outside the repository.
 
-[Architecture and capability boundaries →](docs/architecture.md)
+**Add a plugin or source:** connect an existing tool, MCP server, or CLI to your client, then document when to use it, how to query it, what it can read, and its limits. See the [extension guide](docs/extensions.md).
+
+## Read more
+
+The detailed guides below are in Chinese; commands and paths apply to all clients listed above.
+
+- [Architecture](docs/architecture.md): responsibilities and data flow across strategy, execution, and evidence.
+- [Installation](docs/installation.md): three clients, standard directories, and optional MCP setup.
+- [Extensions](docs/extensions.md): reuse existing tools and document new channels.
+- [Validation record](docs/validation.md): specific environments, executed checks, and capabilities awaiting validation.
 
 ## Cost and license
 
-Open source under [MIT](LICENSE). Model calls, third-party APIs, subscriptions, and devices may incur separate costs depending on the services used.
+Open source under [MIT](LICENSE), with no usage fee from BaoDaTing itself. Model calls, third-party APIs, subscriptions, and devices may incur separate costs depending on the services used.
