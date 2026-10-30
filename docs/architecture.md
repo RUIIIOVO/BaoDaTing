@@ -70,6 +70,7 @@ flowchart TD
 | [`references/integrations.md`](../skills/baodating/references/integrations.md) | 安装后随技能携带的可选渠道接入说明 |
 | [`references/evidence-and-quality.md`](../skills/baodating/references/evidence-and-quality.md) | 来源与证据质量判断 |
 | [`references/decision.md`](../skills/baodating/references/decision.md) | 各类任务的比较规则 |
+| [`references/price-history.md`](../skills/baodating/references/price-history.md) | 购物历史价查询、商品匹配与优惠条件 |
 | [`references/preferences-template.md`](../skills/baodating/references/preferences-template.md) | 可选的个人偏好模板 |
 | `skills/baodating/scripts/` | 可选浏览器与移动端 MCP 启动脚本 |
 | [`skills/baodating/evals/evals.json`](../skills/baodating/evals/evals.json) | 通用评测用例设计；执行结果另记 |

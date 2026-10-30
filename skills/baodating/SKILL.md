@@ -46,7 +46,7 @@ Current instructions override stored preferences. Do not infer enduring preferen
 Choose channels dynamically for relevance, freshness, access, and cost; do not mechanically search every platform. Use [the channel guide](references/channels.md) for capability checks, isolation, transport boundaries, and a compact coverage record.
 
 - For software, verify official documentation, current pricing, repository, license, releases, and relevant issues. Prefer configured `gh` or official APIs when sufficient; use website GUI where it exposes needed information better.
-- For goods, verify exact specifications, seller, region, promotion eligibility, service, and return terms; read independent experience where accessible.
+- For goods, verify exact specifications, seller, region, promotion eligibility, service, and return terms; read independent experience where accessible. When checking a discount or whether to buy now, use the [price-history guide](references/price-history.md) to match the item, seller, dates, and offer conditions.
 - For travel and food, explore feasible experiences, then check location, opening or booking status, dates, people, transport, and cancellation conditions.
 - For research, use scholarly indexes, original papers, versions, citation trails, code, and data. Discovery, full-text access, and checking a conclusion are separate capabilities.
 - Read mobile-only offers, comments, or local information on a phone only when needed and available. A website may already suffice.
