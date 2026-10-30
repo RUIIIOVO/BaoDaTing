@@ -2,7 +2,7 @@
 
 # BaoDaTing · 包打听
 
-Explore the options. Then choose together.
+Ask BaoDaTing first.
 
 [中文](README.md) · [English](README.en.md)
 
@@ -11,27 +11,15 @@ Explore the options. Then choose together.
 
 </div>
 
-BaoDaTing is a general retrieval-enhancement agent skill. It helps an existing agent turn a vague request into actual options, clarify what matters, and make a few recommendations based on evidence, capabilities, and total cost.
+An agent skill for finding sources, checking evidence, and comparing options. Start with a sentence: the agent explores existing solutions, asks a few multiple-choice questions, then recommends options based on capabilities and total cost.
 
-Use it to find software, plugins, and open-source projects; compare products, travel, and dining options; or conduct academic research.
+Use it to find software, plugins, and open-source projects; compare products; research travel and dining; or explore academic literature.
 
 > “I need a way to organize scattered web pages and papers. Help me explore the options first.”
 
-## How it works
+## Use it
 
-1. **Explore first.** Search for actual options, then offer 2–4 meaningful directions with sources.
-2. **Narrow the choice.** Move from broad goals to details, asking one key question at a time. No intake form required.
-3. **Choose sources for the task.** Use official sites, documentation, communities, and original papers; read comments or add other channels when needed.
-4. **Check the evidence.** Distinguish official claims, user reports, and confirmed facts. Examine commercial relationships, content quality, and source independence.
-5. **Recommend a few options.** Compare essential capabilities, price, setup, and maintenance costs. Explain what a higher price actually adds.
-
-Subject, function, and price guide the agent's internal analysis rather than a fixed questionnaire. Academic work emphasizes methods, evidence strength, access, and reproduction costs. Simple factual questions use only the necessary steps. An unsuccessful search does not establish that something does not exist; investigate existing options before suggesting a new build.
-
-## Load the draft
-
-You need a host agent that can load skills and already provides search or web-reading tools. This repository does not bundle model access or channel tools.
-
-For example, with [Pi](https://github.com/badlogic/pi-mono) already installed:
+Load the skill in an existing [Pi](https://github.com/earendil-works/pi) installation:
 
 ```sh
 git clone https://github.com/RUIIIOVO/BaoDaTing.git
@@ -39,21 +27,31 @@ cd BaoDaTing
 pi --skill ./skills/baodating
 ```
 
-Then describe your request in a sentence. For other compatible hosts, load [skills/baodating/SKILL.md](skills/baodating/SKILL.md) using the host's own mechanism. Loading the skill does not install browsers, configure accounts, or connect a phone.
+Then describe what you need. Other compatible hosts can load [SKILL.md](skills/baodating/SKILL.md) through their own skill mechanism. The host must provide search or web-reading tools; loading the skill does not configure accounts or connect devices.
 
-## Current status
+## How it searches
 
-This release contains a **skill draft and architecture notes**. It defines a research workflow; the host's connected tools perform searches and actions. It is not a universal crawler, GUI runner, or trained ad detector, and has not completed end-to-end validation.
+1. **Find what exists.** Explore actual options and offer 2–4 directions with sources.
+2. **Clarify what matters.** Ask one consequential question at a time, moving from broad goals to details. No intake form required.
+3. **Follow original sources.** Choose official sites, documentation, communities, comments, or original papers for the task. Check capabilities, prices, and applicable conditions.
+4. **Compare and recommend.** Check essential needs and whether upgrades justify their cost. Report commercial relationships, conflicting evidence, and gaps in coverage.
 
-- Public pages reuse an existing isolated headless browser supplied by the host. Use official APIs or `gh` where available and appropriate.
-- Account-based research uses a separate persistent browser profile and backup accounts. This requires separate setup and does not connect to the everyday browser.
-- Native macOS app access can optionally use [codex-computer-use](https://github.com/RUIIIOVO/codex-computer-use). It requires the official OpenAI runtime separately and is a different tool from the headless web browser.
-- Android access is planned around a dedicated real device and Mobile MCP: compact accessibility elements first, screenshots for gaps. It is not integrated yet.
+Subject, function, and price organize the agent's internal notes. Academic work also requires assessing methods and evidence strength; access and reproduction costs do not replace research quality. Skip questions when the requirements are clear and keep factual lookups short. An unsuccessful search does not prove something does not exist.
 
-Channel availability and readable content depend on the actual environment. The project promises neither protection from platform restrictions nor a fixed reduction in token usage.
+## Current progress
 
-See [architecture and capability boundaries](docs/architecture.md). Keep research evidence, personal preferences, account state, and credentials outside Git.
+This repository provides a **skill draft and architecture notes**, without end-to-end validation yet. The host performs searches and actions; channels require separate setup.
+
+| Channel | Integration |
+| --- | --- |
+| Web and code | Reuse the host's isolated headless browser; use official APIs or `gh` when appropriate |
+| macOS apps | Optionally use [codex-computer-use](https://github.com/RUIIIOVO/codex-computer-use), with the official OpenAI runtime installed separately |
+| Android apps | Planned: a dedicated real device with Mobile MCP, elements first and screenshots for gaps; not integrated yet |
+
+Account-based research uses a separate browser profile and backup accounts. Native desktop control and the headless browser are separate tools. Keep research records, preferences, and credentials outside the repository. Measure channel coverage, platform restrictions, and token usage in the actual environment.
+
+[Architecture and capability boundaries →](docs/architecture.md)
 
 ## Cost and license
 
-The project is available under the [MIT license](LICENSE). Model calls, third-party APIs, subscriptions, and devices may incur separate costs depending on the services you use.
+Open source under [MIT](LICENSE). Model calls, third-party APIs, subscriptions, and devices may incur separate costs depending on the services used.
