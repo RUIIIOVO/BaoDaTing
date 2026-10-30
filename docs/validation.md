@@ -12,7 +12,7 @@
 | --- | --- | --- |
 | Claude Code 技能安装目录 | 通过 | 在独立临时项目中执行 `skills@1.7.4` 安装，生成 `.claude/skills/baodating/SKILL.md` |
 | Codex 技能安装目录 | 通过 | 同样验证 `.agents/skills/baodating/SKILL.md`；没有运行 Claude Code 或 Codex 的模型研究任务 |
-| Pi 技能入口 | 文档核实 | 官方目录、`--skill` 与 `/skill:baodating`；不把目录兼容视为完整研究评测 |
+| Pi 技能安装目录 | 通过 | 在第三个临时项目验证完整安装及两个脚本的配置入口；`--skill` 与 `/skill:baodating` 另按官方文档核实 |
 | 无头研究浏览器 | 通过 | 通过标准 stdio MCP 启动，观察到 headless 与专用 profile 参数、管道调试连接 |
 | 元素读取与操作 | 通过 | 本地 HTTP 测试页：读取元素、按引用填入查询、刷新引用、点击按钮并核实结果 |
 | 会话持久化 | 通过 | 干净退出 MCP 后，重启同一 profile，测试用 HttpOnly Cookie 仍由本地服务收到 |
@@ -31,7 +31,9 @@
 
 ## 自动检查
 
-本次在 macOS、Node.js 24.22.2 执行 **51 项离线测试，全部通过**。GitHub Actions 配置另覆盖 macOS/Linux、Node.js 22.20.0；远端运行结果以仓库 Checks 为准。
+本次在 macOS、Node.js 24.22.2 执行 **51 项离线测试，全部通过**。独立审计首跑曾出现 1 项前置夹具启动超时，定向与完整复跑通过；随后将该测试的版本探测夹具改为轻量 POSIX 脚本，保留设备阶段的有界超时与不泄漏断言，生产诊断逻辑未改变。最终回归结果见仓库 Checks。
+
+GitHub Actions 配置覆盖 macOS/Linux、Node.js 22.20.0；远端运行状态以仓库 Checks 为准。
 
 在仓库根目录运行，不需要安装项目依赖，也不会连接浏览器或设备：
 

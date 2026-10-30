@@ -172,10 +172,18 @@ test('bounded subprocess: missing, nonzero, timeout, output overflow', async t =
 });
 
 test('doctor CLI reports timeout without serials, paths, stderr leaks or success exit', async t => {
-  const { env } = await fixture(t, { adb: `
-    if (process.argv[2] === 'version') process.stdout.write(${JSON.stringify(version)});
-    else { process.stderr.write('/private/fixture serial-secret'); process.on('SIGTERM',()=>{}); setInterval(()=>{},1000); }
-  ` });
+  // Keep the successful version prerequisite independent of Node startup time.
+  // The second probe still emits private stderr and ignores TERM until reaped.
+  const { dir, env } = await fixture(t);
+  await writeFile(join(dir, 'adb'), `#!/bin/sh
+if [ "$1" = version ]; then
+  printf '%s\\n' 'Android Debug Bridge version 1.0.41'
+  exit 0
+fi
+printf '%s' '/private/fixture serial-secret' >&2
+trap '' TERM
+exec /bin/sleep 60
+`, { mode: 0o755 });
   const result = await invoke(['--doctor', '--json', '--timeout-ms', '1500'], env);
   assert.equal(result.code, 1);
   assert.equal(result.stderr, '');
